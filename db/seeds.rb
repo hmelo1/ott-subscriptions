@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'pry'
+
+records = JSON.parse(File.read(Rails.root.join("sample_data.json")))
+records["RECORDS"].each do |record|
+    Customer.create!(record)
+end

@@ -1,25 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import LandingPage from '../components/landingPage';
 
 const Index = props => (
-  <div>Hello {props.name}!</div>
+  <div>  
+    <LandingPage />
+  </div>
 )
-
-Index.defaultProps = {
-  name: ''
-}
-
-Index.propTypes = {
-  name: PropTypes.string
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Index name="React" />,
+    <Index />,
     document.body.appendChild(document.createElement('div')),
   )
 })
-
-
-export default Index
