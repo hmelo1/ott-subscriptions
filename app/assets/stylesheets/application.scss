@@ -1,2 +1,148 @@
 /* -------- Base Styles -------- */
 @import './base/_variables.scss';
+
+html, body {
+    font-family: $default-font;
+    color: $DarkDark;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+/* -------- HEADER -------- */
+
+.header-container{
+    width: 100%;
+    height: 100px;
+    display: table;
+    padding: 2em 2em 3em 2em;
+
+    .header-icon {
+
+        display: table-cell;
+        text-align: center; 
+
+        img.logo {
+            height: 50px;
+            width: 50px;
+            margin-top: 25px;
+            text-align: center;
+            vertical-align: middle;
+            @media #{$tablet}, #{$desktop}{
+                height: 100px;
+                width: 100px;
+            }
+        }
+        @media #{$tablet}, #{$desktop}{
+            width: 75px;
+        }
+    }
+
+    .header-title {
+        display: table-cell;
+        padding: 0 1em .1em 1em;
+        color: $DarkDark;
+        @media #{$tablet}, #{$desktop}{
+            font-size: $medium;
+        }
+    }
+    
+    .header-subtitle {
+        padding: 0 0 .1em 0;
+        color: $RegentGray;
+        line-height: 1.6;
+    }
+
+    @media #{$tablet}, #{$desktop}{
+        width: 100%;
+        height: 6em;
+    }
+}
+/* -------- SEARCHBAR -------- */
+.searchbar-container {
+    display: none;
+    
+
+    @media #{$tablet}, #{$desktop}{
+        display: flex;
+        width: 100%;
+        height: 6em;
+        background-color: $Porcelain;
+        align-items: center;
+        
+        justify-content: flex-end;
+
+        .searchbar {
+            padding-right: 3em;
+            width: 100%;
+            display: flex;
+            width: 15em;
+            height: 30px;
+
+            .searchbar-input {
+                width: 100%;
+                border: none;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+/* -------- CUSTOMERS TABLE -------- */
+
+table#customers {
+    width: 100%;
+    border-collapse: collapse; 
+
+    thead, tbody, th, td, tr {
+        @media #{$mobile} {
+            display: block;
+        }
+    }
+
+
+
+    #table-wrapper {
+        .table-headers {
+            display: none;
+            text-align: left;
+
+            @media #{$tablet}, #{$desktop}{
+                display: table-cell;
+                color: $RegentGray;
+                font-size: $medium;
+                width: 33%;
+                
+                padding: .7em 2em .5em 1em;
+                border-bottom: 2px solid $Plaster;
+            }
+        }
+
+
+
+        tr.table-contents {
+            border-bottom: 2px solid $Plaster;
+            margin: 1em;
+            padding: 0em 2em 3em 2em;
+
+            .table-left-group {
+                text-align: left;
+
+                @media #{$mobile} {
+                    display: table;
+                }
+            }
+            .table-right-group {
+                text-align: right;
+            }
+        }
+
+        tr.table-contents td {
+            font-size: $medium;
+            color: $DarkDark;
+
+            @media #{$tablet}, #{$desktop}{
+                padding: .5em 2em 2em .5em;
+            }
+        }
+    }
+}

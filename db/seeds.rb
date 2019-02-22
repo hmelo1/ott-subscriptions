@@ -1,14 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-require 'pry'
-
 records = JSON.parse(File.read(Rails.root.join("sample_data.json")))
+
 records["RECORDS"].each do |record|
-    Customer.create!(record)
+    Customer.create!(
+        email: record["email"],
+        city: record["city"],
+        state: record["state"],
+        country: record["country"]
+    )
+    Subscription.create!(
+        subscribed_at: record["subscribed_at"],
+        billing_type: record["billing_type"],
+        customer_id: Customer.last.id
+    )
+    Platform.create!(
+        platform: record["platform"],
+        product: record["product_name"],
+        subscription_id: Subscription.last.id
+    )
 end
+
+SELECT customers.*, 
+subscriptions.subscribed_at as subscribed_at, 
+subscriptions.billing_type as billing_type, 
+platform.platform as platform, 
+platform.product_name as product 
+FROM "customers" INNER JOIN "subscriptions" ON "subscriptions"."customer_id" = "customers"."id" INNER JOIN "subscriptions" "subscriptions_customers_join" ON "subscriptions_customers_join"."customer_id" = "customers"."id" INNER JOIN "platforms" ON "platforms"."subscription_id" = "subscriptions_customers_join"."id"

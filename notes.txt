@@ -1,0 +1,27 @@
+Consists of 3 ActiveRecord models
+    1. Customer (belongs to product)
+    2. Subscription
+    3. Platform (has_many customers through customers)
+
+    rails g model customer email:string city:string state:string country:string
+    rails g model subscription subscribed_at:string billing_type:string customer_id:integer
+    rails g model platform platform:string product:string subscription_id:integer
+
+Contains 2 routes, 1 for homepage, and 1 subscriptions API endpoint
+    scope '/api' do
+
+    end
+
+Return JSON format onlly using any serialization\
+    @customers = Customer.all
+    render json: {@customers.as_json}
+
+Support api pagination
+    Kaminari
+
+Contains seed file to import sample_data.json
+
+has one API test 
+
+
+

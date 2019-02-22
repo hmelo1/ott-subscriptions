@@ -5,17 +5,9 @@ one:
   city: MyString
   state: MyString
   country: MyString
-  product_name: MyString
-  platform: MyString
-  subscribed_at: MyString
-  billing_type: MyString
 
 two:
   email: MyString
   city: MyString
   state: MyString
   country: MyString
-  product_name: MyString
-  platform: MyString
-  subscribed_at: MyString
-  billing_type: MyString

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import LandingPage from '../components/landingPage';
 
 const Index = props => (
-  <div>  
+  <div id="app">  
     <LandingPage />
   </div>
 )
@@ -14,3 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(document.createElement('div')),
   )
 })
+
+export default Index
